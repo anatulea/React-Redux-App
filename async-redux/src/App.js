@@ -1,5 +1,6 @@
 import React from 'react';
-import MakeUpList from './componenets/MakeUpList.js';
+import MakeUpList from './componenets/MakeUpList';
+import MakeUpForm from './componenets/MakeUpForm.js';
 import './App.css';
 
 
@@ -7,8 +8,8 @@ function App() {
   return (
       <div className="App">
         <header className="App-header">
-          <MakeUpList/>
-        hello
+         <MakeUpForm/>
+        <MakeUpList/>
         </header>
       </div>
   );

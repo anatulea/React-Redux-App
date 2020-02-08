@@ -1,7 +1,19 @@
-export const GET_DATA = "GET_DATA";
+import axios from 'axios'; 
 
-export const getData = () => {
-    return {
-        type:GET_DATA
+export const FETCH_DATA = "FETCH_DATA";
+export const UPDATE_MAKEUP = "UPDATE_MAKEUP";
+ export const SET_ERROR = "SET_ERROR";
+
+export const getData = () => dispatch =>{
+     dispatch({type:FETCH_DATA});
+     axios
+     .get("http://makeup-api.herokuapp.com/api/v1/products.json")
+     .then(res => {
+       console.log(res);
+       dispatch({ type: UPDATE_MAKEUP, payload: res.data });
+     })
+        .catch(err => {
+            console.error ("error from fetching data from API", err);
+            dispatch({type :SET_ERROR, payload:" error fetching data from the api"});
+        });
     };
-};
